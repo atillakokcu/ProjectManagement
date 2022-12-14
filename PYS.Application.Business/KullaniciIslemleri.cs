@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PYS.Application.Business
 {
-    internal class KullaniciIslemleri:BaseKullaniciIslemleri
+    public class KullaniciIslemleri:BaseKullaniciIslemleri
     {
         public string GetToken(string KullaniciBilgisi, string Sifre,out string Mesaj)
         {

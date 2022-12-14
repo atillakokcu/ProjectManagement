@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PYS.Application.Business;
 
-namespace PYS.Security.TestForm
+namespace TestForm
 {
     internal static class Program
     {
@@ -22,4 +21,3 @@ namespace PYS.Security.TestForm
         }
     }
 }
-

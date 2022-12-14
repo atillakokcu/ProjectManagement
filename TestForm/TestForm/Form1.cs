@@ -28,7 +28,7 @@ namespace PYS.Application.Security.TestForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TxtDecryptText.Text = PYS.Application.Security.PYSSecurity.Decrypt(TxtEncryptText.Text, "asdsa");
+            TxtDecryptText.Text = PYS.Application.Security.PYSSecurity.Decrypt(TxtEncryptText.Text.ToString(), "asdsa");
         }
 
         private void button3_Click(object sender, EventArgs e)

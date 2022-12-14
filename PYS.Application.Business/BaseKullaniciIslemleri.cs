@@ -10,7 +10,7 @@ using System.CodeDom;
 
 namespace PYS.Application.Business
 {
-    internal class BaseKullaniciIslemleri
+    public class BaseKullaniciIslemleri
     {
 
         private DbPYSEntities Db;
