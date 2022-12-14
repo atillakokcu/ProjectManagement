@@ -104,6 +104,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PYS.Application.Business\PYS.Application.Business.csproj">
+      <Project>{c6e15629-5a1b-4018-8e81-abddac8545a3}</Project>
+      <Name>PYS.Application.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PYS.Application.Data\PYS.Application.Data.csproj">
+      <Project>{287ad1fa-943a-4a2b-b8ff-2e5bdf51144f}</Project>
+      <Name>PYS.Application.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

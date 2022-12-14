@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PYS.Application.Security
+namespace PYS.Application.Business
 {
-    public class Class1
+    internal class KullaniciIslemleri
     {
     }
 }
