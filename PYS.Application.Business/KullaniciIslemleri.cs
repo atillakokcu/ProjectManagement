@@ -8,20 +8,37 @@ using System.Threading.Tasks;
 
 namespace PYS.Application.Business
 {
-    public class KullaniciIslemleri:BaseKullaniciIslemleri
+    public class KullaniciIslemleri : BaseKullaniciIslemleri
     {
-        public string GetToken(string KullaniciBilgisi, string Sifre,out string Mesaj)
+        public string GetToken(string KullaniciBilgisi, string Sifre, out string Mesaj)
         {
             VwKisiKullaniciIletisim KullaniciKisi = null;
             string Result = "";
-            
-            bool Success= base.DoLogin(KullaniciBilgisi, Sifre,out KullaniciKisi,out Mesaj);
+
+            bool Success = base.DoLogin(KullaniciBilgisi, Sifre, out KullaniciKisi, out Mesaj);
 
             if (Success)
             {
-                if (KullaniciKisi!=null)
+                if (KullaniciKisi != null)
                 {
-                    Result = KullaniciKisi.Guid.Value + "|" +
+                    Result = DoCreateToken(KullaniciKisi);
+                }
+            }
+            return Result;
+        }
+
+        public TResult Register(TKullaniciKisiIletisim KisiBilgileri)
+        {
+
+            return DoRegister(KisiBilgileri);
+
+        }
+
+
+        private string DoCreateToken(VwKisiKullaniciIletisim KullaniciKisi)
+        {
+
+           string Result = KullaniciKisi.Guid.Value + "|" +
                                             KullaniciKisi.FirmaKodu + "|" +
                                             KullaniciKisi.KisiId + "|" +
                                             KullaniciKisi.Tc + "|" +
@@ -29,13 +46,12 @@ namespace PYS.Application.Business
                                             KullaniciKisi.KullaniciId + "|" +
                                             Guid.NewGuid().ToString();
 
-                    Result = PYSSecurity.Encrypt(Result, KullaniciKisi.Guid.Value.ToString());
-                }
-                
-
-            }
+            Result = PYSSecurity.Encrypt(Result, KullaniciKisi.Guid.Value.ToString());
             return Result;
+
+
         }
+
 
 
     }
