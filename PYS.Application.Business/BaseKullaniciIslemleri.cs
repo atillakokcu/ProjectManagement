@@ -108,7 +108,7 @@ namespace PYS.Application.Business
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 result.Message = "Hata Meydana geldi";
