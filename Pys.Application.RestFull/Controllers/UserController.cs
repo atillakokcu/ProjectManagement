@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using PYS.Application.Business;
 
 namespace Pys.Application.RestFull.Controllers
 {
@@ -25,8 +26,12 @@ namespace Pys.Application.RestFull.Controllers
         // POST api/<controller>
         public HttpResponseMessage Post(TKullaniciKisiIletisim KisiBilgileri)
         {
+            KullaniciIslemleri Kullanici = new KullaniciIslemleri();
+            TResult result = Kullanici.Register(KisiBilgileri);
 
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            var Response =  Request.CreateResponse<TResult>(HttpStatusCode.OK,result);
+
+            return Response;
         }
 
         // PUT api/<controller>/5

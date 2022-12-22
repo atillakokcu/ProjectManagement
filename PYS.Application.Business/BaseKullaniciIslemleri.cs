@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using PYS.Application.Security;
 using System.CodeDom;
 using System.Security.Cryptography;
+using System.Security.Policy;
 
 namespace PYS.Application.Business
 {
@@ -83,6 +84,7 @@ namespace PYS.Application.Business
                     Db.SaveChanges();
 
                     Kullanicilar.KisiId = Kisi.KisiId;
+                    Kullanicilar.Sifre = PYSSecurity.StrToMd5(Kullanicilar.Sifre)
                     Db.TblKullanicilar.Add(Kullanicilar);
                     Db.SaveChanges();
 
@@ -108,7 +110,7 @@ namespace PYS.Application.Business
                 }
 
             }
-            catch (Exception )
+            catch (Exception  )
             {
 
                 result.Message = "Hata Meydana geldi";

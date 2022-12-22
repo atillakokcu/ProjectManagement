@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PYS.Application.Business;
+using PYS.Application.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,8 +24,25 @@ namespace Pys.Application.RestFull.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody] string value)
+        public HttpResponseMessage Post(TUser User)
         {
+            HttpResponseMessage Response = new HttpResponseMessage();
+            KullaniciIslemleri Kullanici = new KullaniciIslemleri();
+            TResult result = Kullanici.GetToken(User.Username, User.Password);
+
+            if (!result.Success)
+            {
+                Response = Request.CreateResponse(HttpStatusCode.Unauthorized);
+            }
+            else
+            {
+                Response = Request.CreateResponse<TResult>(HttpStatusCode.OK, result);
+            }
+            
+
+            return Response;
+
+
         }
 
         // PUT api/<controller>/5

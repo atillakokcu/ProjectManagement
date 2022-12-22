@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -66,6 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -83,6 +87,10 @@
     <ProjectReference Include="..\..\PYS.Application.Business\PYS.Application.Business.csproj">
       <Project>{c6e15629-5a1b-4018-8e81-abddac8545a3}</Project>
       <Name>PYS.Application.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PYS.Application.Data\PYS.Application.Data.csproj">
+      <Project>{287ad1fa-943a-4a2b-b8ff-2e5bdf51144f}</Project>
+      <Name>PYS.Application.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PYS.Application.Security\PYS.Application.Security.csproj">
       <Project>{19c683bc-bd84-489f-9b9f-f447c5027876}</Project>

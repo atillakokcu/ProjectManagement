@@ -10,19 +10,24 @@ namespace PYS.Application.Business
 {
     public class KullaniciIslemleri : BaseKullaniciIslemleri
     {
-        public string GetToken(string KullaniciBilgisi, string Sifre, out string Mesaj)
+        public TResult GetToken(string KullaniciBilgisi, string Sifre)
         {
             VwKisiKullaniciIletisim KullaniciKisi = null;
-            string Result = "";
-
-            bool Success = base.DoLogin(KullaniciBilgisi, Sifre, out KullaniciKisi, out Mesaj);
+            TResult Result = new TResult();
+            Result.StatusCode = -1000;
+            string Message, Token = "";
+            bool Success = base.DoLogin(KullaniciBilgisi, Sifre, out KullaniciKisi, out Message);
 
             if (Success)
             {
                 if (KullaniciKisi != null)
                 {
-                    Result = DoCreateToken(KullaniciKisi);
+                    Token = DoCreateToken(KullaniciKisi);
+
                 }
+                Result.Success = Success;
+                Result.StatusCode = 200;
+                Result.Data.Add(Token);
             }
             return Result;
         }
@@ -38,13 +43,13 @@ namespace PYS.Application.Business
         private string DoCreateToken(VwKisiKullaniciIletisim KullaniciKisi)
         {
 
-           string Result = KullaniciKisi.Guid.Value + "|" +
-                                            KullaniciKisi.FirmaKodu + "|" +
-                                            KullaniciKisi.KisiId + "|" +
-                                            KullaniciKisi.Tc + "|" +
-                                            KullaniciKisi.KullaniciAdi + "|" +
-                                            KullaniciKisi.KullaniciId + "|" +
-                                            Guid.NewGuid().ToString();
+            string Result = KullaniciKisi.Guid.Value + "|" +
+                                             KullaniciKisi.FirmaKodu + "|" +
+                                             KullaniciKisi.KisiId + "|" +
+                                             KullaniciKisi.Tc + "|" +
+                                             KullaniciKisi.KullaniciAdi + "|" +
+                                             KullaniciKisi.KullaniciId + "|" +
+                                             Guid.NewGuid().ToString();
 
             Result = PYSSecurity.Encrypt(Result, KullaniciKisi.Guid.Value.ToString());
             return Result;
