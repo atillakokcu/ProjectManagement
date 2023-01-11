@@ -23,6 +23,19 @@ namespace PYS.Application.Web.Models
             return response.Content;
         }
 
+        public TResult GetToken(string Username, string Password)
+        {
+            TResult result= new TResult();
+            Client = new RestClient(TSiteSettings.ApiUrl+"//Token");
+            var request= new RestRequest();
+            request.AddJsonBody(Username, Password);
+            var response = Client.Get(request); 
+            result = JsonConvert.DeserializeObject<TResult>(response.Content);
+            return result;
+        }
+
+
+
         public TResult Register(TKullaniciKisiIletisim KisiBilgileri)
         {
             TResult result = new TResult();
