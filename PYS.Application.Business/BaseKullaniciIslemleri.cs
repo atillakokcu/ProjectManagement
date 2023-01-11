@@ -84,7 +84,7 @@ namespace PYS.Application.Business
                     Db.SaveChanges();
 
                     Kullanicilar.KisiId = Kisi.KisiId;
-                    Kullanicilar.Sifre = PYSSecurity.StrToMd5(Kullanicilar.Sifre)
+                    Kullanicilar.Sifre = PYSSecurity.StrToMd5(Kullanicilar.Sifre);
                     Db.TblKullanicilar.Add(Kullanicilar);
                     Db.SaveChanges();
 

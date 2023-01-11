@@ -24,11 +24,11 @@ namespace PYS.Application.Web.Controllers
         }
 
 
-        public ActionResult Register()
-        {
-            TRestClient client= new TRestClient();
-            //client.Register()
-        }
+        //public ActionResult Register()
+        //{
+        //    TRestClient client= new TRestClient();
+        //    //client.Register()
+        //}
 
 
     }
