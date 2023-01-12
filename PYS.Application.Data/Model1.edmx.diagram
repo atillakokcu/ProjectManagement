@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="PYSDataModel.VwKisiKullaniciIletisim" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PYSDataModel.TblFirmalar" Width="1.5" PointX="7.75" PointY="6.75" />
         <EntityTypeShape EntityType="PYSDataModel.TblKisiFirma" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PYSDataModel.VwFirmalar" Width="1.5" PointX="3.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

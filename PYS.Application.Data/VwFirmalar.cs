@@ -12,7 +12,7 @@ namespace PYS.Application.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class TblFirmalar
+    public partial class VwFirmalar
     {
         public int FirmaId { get; set; }
         public string FirmaKodu { get; set; }

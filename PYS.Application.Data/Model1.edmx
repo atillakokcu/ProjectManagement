@@ -43,6 +43,7 @@
           <Property Name="Aktif" Type="bit" />
           <Property Name="Silik" Type="bit" />
           <Property Name="KayitVersiyonu" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="FirmaGuid" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="TblKisi">
           <Key>
@@ -103,6 +104,21 @@
           <Property Name="KayitVersiyonu" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DbPYS.dbo.VwFirmalar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwFirmalar">
+          <Key>
+            <PropertyRef Name="FirmaId" />
+          </Key>
+          <Property Name="FirmaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirmaKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirmaUnvan" Type="int" />
+          <Property Name="Kayittarihi" Type="datetime" />
+          <Property Name="Aktif" Type="bit" />
+          <Property Name="Silik" Type="bit" />
+          <Property Name="KayitVersiyonu" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="FirmaGuid" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwKisiKullaniciIletisim">
           <Key>
@@ -142,6 +158,18 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <EntitySet Name="TblKisiFirma" EntityType="Self.TblKisiFirma" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblKisiIletisim" EntityType="Self.TblKisiIletisim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblKullanicilar" EntityType="Self.TblKullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwFirmalar" EntityType="Self.VwFirmalar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwFirmalar].[FirmaId] AS [FirmaId], 
+    [VwFirmalar].[FirmaKodu] AS [FirmaKodu], 
+    [VwFirmalar].[FirmaUnvan] AS [FirmaUnvan], 
+    [VwFirmalar].[Kayittarihi] AS [Kayittarihi], 
+    [VwFirmalar].[Aktif] AS [Aktif], 
+    [VwFirmalar].[Silik] AS [Silik], 
+    [VwFirmalar].[KayitVersiyonu] AS [KayitVersiyonu], 
+    [VwFirmalar].[FirmaGuid] AS [FirmaGuid]
+    FROM [dbo].[VwFirmalar] AS [VwFirmalar]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VwKisiKullaniciIletisim" EntityType="Self.VwKisiKullaniciIletisim" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VwKisiKullaniciIletisim].[KisiId] AS [KisiId], 
@@ -284,6 +312,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <EntitySet Name="VwKisiKullaniciIletisim" EntityType="Self.VwKisiKullaniciIletisim" />
           <EntitySet Name="TblFirmalar" EntityType="PYSDataModel.TblFirmalar" />
           <EntitySet Name="TblKisiFirma" EntityType="PYSDataModel.TblKisiFirma" />
+          <EntitySet Name="VwFirmalar" EntityType="PYSDataModel.VwFirmalar" />
         </EntityContainer>
         <EntityType Name="TblFirmalar">
           <Key>
@@ -296,6 +325,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <Property Name="Aktif" Type="Boolean" />
           <Property Name="Silik" Type="Boolean" />
           <Property Name="KayitVersiyonu" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FirmaGuid" Type="Guid" />
         </EntityType>
         <EntityType Name="TblKisiFirma">
           <Key>
@@ -309,6 +339,19 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <Property Name="Aktif" Type="Boolean" />
           <Property Name="Silik" Type="Boolean" />
           <Property Name="KayitVersiyonu" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="VwFirmalar">
+          <Key>
+            <PropertyRef Name="FirmaId" />
+          </Key>
+          <Property Name="FirmaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirmaKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirmaUnvan" Type="Int32" />
+          <Property Name="Kayittarihi" Type="DateTime" Precision="3" />
+          <Property Name="Aktif" Type="Boolean" />
+          <Property Name="Silik" Type="Boolean" />
+          <Property Name="KayitVersiyonu" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FirmaGuid" Type="Guid" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -424,6 +467,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <EntitySetMapping Name="TblFirmalar">
             <EntityTypeMapping TypeName="PYSDataModel.TblFirmalar">
               <MappingFragment StoreEntitySet="TblFirmalar">
+                <ScalarProperty Name="FirmaGuid" ColumnName="FirmaGuid" />
                 <ScalarProperty Name="KayitVersiyonu" ColumnName="KayitVersiyonu" />
                 <ScalarProperty Name="Silik" ColumnName="Silik" />
                 <ScalarProperty Name="Aktif" ColumnName="Aktif" />
@@ -445,6 +489,20 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
                 <ScalarProperty Name="FirmaId" ColumnName="FirmaId" />
                 <ScalarProperty Name="KisiId" ColumnName="KisiId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwFirmalar">
+            <EntityTypeMapping TypeName="PYSDataModel.VwFirmalar">
+              <MappingFragment StoreEntitySet="VwFirmalar">
+                <ScalarProperty Name="FirmaGuid" ColumnName="FirmaGuid" />
+                <ScalarProperty Name="KayitVersiyonu" ColumnName="KayitVersiyonu" />
+                <ScalarProperty Name="Silik" ColumnName="Silik" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Kayittarihi" ColumnName="Kayittarihi" />
+                <ScalarProperty Name="FirmaUnvan" ColumnName="FirmaUnvan" />
+                <ScalarProperty Name="FirmaKodu" ColumnName="FirmaKodu" />
+                <ScalarProperty Name="FirmaId" ColumnName="FirmaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

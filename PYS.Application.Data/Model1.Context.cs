@@ -33,5 +33,6 @@ namespace PYS.Application.Data
         public virtual DbSet<VwKisiKullaniciIletisim> VwKisiKullaniciIletisim { get; set; }
         public virtual DbSet<TblFirmalar> TblFirmalar { get; set; }
         public virtual DbSet<TblKisiFirma> TblKisiFirma { get; set; }
+        public virtual DbSet<VwFirmalar> VwFirmalar { get; set; }
     }
 }

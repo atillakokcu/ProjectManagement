@@ -12,6 +12,10 @@ namespace PYS.Application.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            TRestClient client = new TRestClient();
+            TApiUser apiUser = new TApiUser();
+            
+
             return View();
         }
 

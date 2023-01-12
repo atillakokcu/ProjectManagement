@@ -90,6 +90,9 @@
     <Compile Include="TKullaniciKisiIletisim.cs" />
     <Compile Include="TResult.cs" />
     <Compile Include="TUser.cs" />
+    <Compile Include="VwFirmalar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VwKisiKullaniciIletisim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
