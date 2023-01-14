@@ -22,5 +22,6 @@ namespace PYS.Application.Data
         public Nullable<bool> Silik { get; set; }
         public byte[] KayitVersiyonu { get; set; }
         public Nullable<System.Guid> FirmaGuid { get; set; }
+        public string SecretKey { get; set; }
     }
 }

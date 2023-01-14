@@ -26,7 +26,17 @@ namespace Pys.Application.RestFull.Controllers
         // POST api/<controller>
         public HttpResponseMessage Post(TUser User)
         {
+            IEnumerable<string> values;
             HttpResponseMessage Response = new HttpResponseMessage();
+
+            bool GetSecretKey = Request.Headers.TryGetValues("SecretKey", out values);
+            if (GetSecretKey)
+            {
+
+
+            }
+            string SecretKey = values.First();
+
             KullaniciIslemleri Kullanici = new KullaniciIslemleri();
             TResult result = Kullanici.GetToken(User.Username, User.Password);
 
@@ -38,7 +48,7 @@ namespace Pys.Application.RestFull.Controllers
             {
                 Response = Request.CreateResponse<TResult>(HttpStatusCode.OK, result);
             }
-            
+
 
             return Response;
 

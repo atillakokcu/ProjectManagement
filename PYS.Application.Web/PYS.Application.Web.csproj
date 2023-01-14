@@ -971,12 +971,14 @@
     <Content Include="assets\libs\swiper\swiper-bundle.min.js" />
     <Content Include="assets\libs\wnumb\wNumb.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="jquery\Main.js" />
     <Content Include="jquery\jquery-3.6.2.min.js" />
     <Content Include="jquery\MyJavaScriptFile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1024,6 +1026,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PYS.Application.Data\PYS.Application.Data.csproj">

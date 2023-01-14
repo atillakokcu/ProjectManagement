@@ -36,5 +36,6 @@ namespace PYS.Application.Data
         public string Unvan { get; set; }
         public string FirmaKodu { get; set; }
         public Nullable<int> FirmaUnvan { get; set; }
+        public string SecretKey { get; set; }
     }
 }

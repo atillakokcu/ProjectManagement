@@ -23,7 +23,7 @@ namespace PYS.Application.Business
 
         }
 
-        internal bool DoLogin(string KullaniciBilgisi, string Sifre, out VwKisiKullaniciIletisim KullaniciKisi, out string Mesaj)
+        internal bool DoLogin(string KullaniciBilgisi, string Sifre,string SecretKey, out VwKisiKullaniciIletisim KullaniciKisi, out string Mesaj)
         {
             KullaniciKisi = null;
             Mesaj = "";
@@ -33,7 +33,7 @@ namespace PYS.Application.Business
             try
             {
                 var KisiKaydi = (from data in Db.VwKisiKullaniciIletisim
-                                 where data.Iletisim == KullaniciBilgisi || data.KullaniciAdi == KullaniciBilgisi
+                                 where data.Iletisim == KullaniciBilgisi || data.KullaniciAdi == KullaniciBilgisi && data.SecretKey==SecretKey
                                  select data).FirstOrDefault();
 
                 if (KisiKaydi == null)

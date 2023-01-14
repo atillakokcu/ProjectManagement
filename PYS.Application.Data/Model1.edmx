@@ -44,6 +44,7 @@
           <Property Name="Silik" Type="bit" />
           <Property Name="KayitVersiyonu" Type="timestamp" StoreGeneratedPattern="Computed" />
           <Property Name="FirmaGuid" Type="uniqueidentifier" />
+          <Property Name="SecretKey" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TblKisi">
           <Key>
@@ -148,6 +149,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <Property Name="Iletisim" Type="nvarchar" MaxLength="50" />
           <Property Name="FirmaKodu" Type="nvarchar" MaxLength="50" />
           <Property Name="FirmaUnvan" Type="int" />
+          <Property Name="SecretKey" Type="nvarchar" MaxLength="50" />
           <Property Name="Unvan" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="PYSDataModelStoreContainer">
@@ -193,6 +195,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
     [VwKisiKullaniciIletisim].[Iletisim] AS [Iletisim], 
     [VwKisiKullaniciIletisim].[FirmaKodu] AS [FirmaKodu], 
     [VwKisiKullaniciIletisim].[FirmaUnvan] AS [FirmaUnvan], 
+    [VwKisiKullaniciIletisim].[SecretKey] AS [SecretKey], 
     [VwKisiKullaniciIletisim].[Unvan] AS [Unvan]
     FROM [dbo].[VwKisiKullaniciIletisim] AS [VwKisiKullaniciIletisim]</DefiningQuery>
           </EntitySet>
@@ -302,6 +305,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <Property Name="Unvan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirmaKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirmaUnvan" Type="Int32" />
+          <Property Name="SecretKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="DbPYSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SysAdresTipleri" EntityType="Self.SysAdresTipleri" />
@@ -326,6 +330,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <Property Name="Silik" Type="Boolean" />
           <Property Name="KayitVersiyonu" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="FirmaGuid" Type="Guid" />
+          <Property Name="SecretKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TblKisiFirma">
           <Key>
@@ -439,6 +444,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <EntitySetMapping Name="VwKisiKullaniciIletisim">
             <EntityTypeMapping TypeName="PYSDataModel.VwKisiKullaniciIletisim">
               <MappingFragment StoreEntitySet="VwKisiKullaniciIletisim">
+                <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
                 <ScalarProperty Name="FirmaUnvan" ColumnName="FirmaUnvan" />
                 <ScalarProperty Name="FirmaKodu" ColumnName="FirmaKodu" />
                 <ScalarProperty Name="KisiId" ColumnName="KisiId" />
@@ -467,6 +473,7 @@ warning 6002: The table/view 'DbPYS.dbo.VwKisiKullaniciIletisim' does not have a
           <EntitySetMapping Name="TblFirmalar">
             <EntityTypeMapping TypeName="PYSDataModel.TblFirmalar">
               <MappingFragment StoreEntitySet="TblFirmalar">
+                <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
                 <ScalarProperty Name="FirmaGuid" ColumnName="FirmaGuid" />
                 <ScalarProperty Name="KayitVersiyonu" ColumnName="KayitVersiyonu" />
                 <ScalarProperty Name="Silik" ColumnName="Silik" />
